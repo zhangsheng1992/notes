@@ -129,5 +129,3 @@ windows下会编译成**文件名.exe**的可执行文件,macos X,linunx下会�
 注:go run 命令实际上是先执行go build命令,然后在执行编译后的可执行文件的
 
 go编译起会将所有用到的库都编译进去,不会重复引用,很智能,下面这张图代表了编译时的顺序,这个可以等学到后边再回头来理解
-
-<img src="/public/images/wiki/build.png" class="blogimage" />
