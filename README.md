@@ -13,9 +13,9 @@ English
 ## 目录
 
 ### 基础部分
-![helloworld](https://github.com/zhangsheng1992/gostudynote/blob/master/base/helloworld.md "helloworld")
+[helloworld](https://github.com/zhangsheng1992/gostudynote/blob/master/base/helloworld.md)
 
-![数组](https://github.com/zhangsheng1992/gostudynote/blob/master/base/array.md "数组")
+[数组](https://github.com/zhangsheng1992/gostudynote/blob/master/base/array.md)
 
 ### 常用工具整理
-![类型转换](https://github.com/zhangsheng1992/gostudynote/blob/master/tools/type_convert.md "类型转换")
+[类型转换](https://github.com/zhangsheng1992/gostudynote/blob/master/tools/type_convert.md)
