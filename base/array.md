@@ -6,7 +6,7 @@
 
 n为数组长度,n>=且无法修改,type为数组的元素类型
 ```go
-	var a [2]int
+var a [2]int
 ```
 定义一个长度为2,元素类型为int的数组
 
@@ -14,34 +14,34 @@ n为数组长度,n>=且无法修改,type为数组的元素类型
 
 下面的程序是错误的
 ```go
-	var a [2]int
-	var b [1]int
-	//下面的赋值是错误的
-	a = b
+var a [2]int
+var b [1]int
+//下面的赋值是错误的
+a = b
 ```
 [2]int 与 [1]int 不是同一个类型
 
 相同类型的的数组可以进行 ==与!=的比较操作
 ```go
-	var a [2]int
-	var b [2]int
-	if a == b {
-		fmt.Println("a = b")
-	}
-	
-	a[0] = 1
-	if a != b {
-		fmt.Println("a != b")
-	}
+var a [2]int
+var b [2]int
+if a == b {
+	fmt.Println("a = b")
+}
+
+a[0] = 1
+if a != b {
+	fmt.Println("a != b")
+}
 ```
 ### 数组元素的访问与修改
 数组的下标是从0开始的整数,我们可以通过下表来访问或修改相对应的元素 如:
 
 ```go
-	var a = [3]string{"zhangsan","lisi","wangwu"}
-	fmt.Println(a[0],a[1],a[2])
-	a[2] = "王五"
-	fmt.Println(a[0],a[1],a[2])
+var a = [3]string{"zhangsan","lisi","wangwu"}
+fmt.Println(a[0],a[1],a[2])
+a[2] = "王五"
+fmt.Println(a[0],a[1],a[2])
 ```
 以上程序将输出:
 zhangsan lisi wangwu 
@@ -83,19 +83,19 @@ zhangsan lisi 王五
 ### 指针数组
 数组元素的类型可以是任意相同的类型,所以,保存的元素为指针类型的数组就是指针数组 如:
 ```go
-	a := [2]*int{}
-	x, y := 1, 2
-	a[0] = &x
-	a[1] = &y
-	fmt.Println(a)
+a := [2]*int{}
+x, y := 1, 2
+a[0] = &x
+a[1] = &y
+fmt.Println(a)
 ```
 a数组是一个指针数组,其中保存着变量x,y的指针
 
 ### 数组指针
 数组指针就是指向一个数组的指针 如：
 ```go
-	a := [5]int{1, 2, 3, 4, 5}
-	p := &a
+a := [5]int{1, 2, 3, 4, 5}
+p := &a
 ```
 数组p就是数组a的一个指针数组
 
@@ -109,14 +109,14 @@ a数组是一个指针数组,其中保存着变量x,y的指针
 golang中的数组为值类型,传递进函数的时候传递的是数组的一个拷贝 看下面的一个例子
 
 ```go
-	test := func(p [2]int) {
-		p[0] = 123
-	}
+test := func(p [2]int) {
+	p[0] = 123
+}
 
-	a := [2]int{1, 2}
-	fmt.Println("传递进函数前:", a)
-	test(a)
-	fmt.Println("传递进函数后:", a)
+a := [2]int{1, 2}
+fmt.Println("传递进函数前:", a)
+test(a)
+fmt.Println("传递进函数后:", a)
 ```
 
 test是一个匿名函数,关于匿名函数的概念,我们将在后边详细介绍
