@@ -88,8 +88,8 @@ fmt.Println(backToStringSlice)
 
 ```go
 func main(){
-	//response.Body为io.ReadCloser类型
-	dataByte, err2 := ioutil.ReadAll(response.Body)
-	fmt.Println(dataByte, err2)	
+    //response.Body为io.ReadCloser类型
+    dataByte, err2 := ioutil.ReadAll(response.Body)
+    fmt.Println(dataByte, err2)	
 }
 ```

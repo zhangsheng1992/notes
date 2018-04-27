@@ -26,12 +26,12 @@ a = b
 var a [2]int
 var b [2]int
 if a == b {
-	fmt.Println("a = b")
+    fmt.Println("a = b")
 }
 
 a[0] = 1
 if a != b {
-	fmt.Println("a != b")
+    fmt.Println("a != b")
 }
 ```
 ### 数组元素的访问与修改
@@ -110,7 +110,7 @@ golang中的数组为值类型,传递进函数的时候传递的是数组的一�
 
 ```go
 test := func(p [2]int) {
-	p[0] = 123
+    p[0] = 123
 }
 
 a := [2]int{1, 2}
@@ -125,14 +125,13 @@ test是一个匿名函数,关于匿名函数的概念,我们将在后边详细�
 
 ```go
 func main(){
-	b := func(p [2]int) [2]int {
-		fmt.Println("函数内的数组元素的地址为", &p[0], &p[1])
-		return p
-	}
-
-	var a = [2]int{1, 2}
-	fmt.Println("函数外的数组元素的地址为", &a[0], &a[1])
-	b(a)
+    b := func(p [2]int) [2]int {
+        fmt.Println("函数内的数组元素的地址为", &p[0], &p[1])
+        return p
+    }
+    var a = [2]int{1, 2}
+    fmt.Println("函数外的数组元素的地址为", &a[0], &a[1])
+    b(a)
 }
 ```
 执行结果为:
@@ -149,14 +148,14 @@ func main(){
 package main
 
 import (
-	"fmt"
+    "fmt"
 )
 
 func main() {
-	var a = [5]string{"a", "b", "c", "d", "e"}
-	for i := 0; i < len(a); i++ {
-			fmt.Println(a[i])
-	}
+    var a = [5]string{"a", "b", "c", "d", "e"}
+    for i := 0; i < len(a); i++ {
+        fmt.Println(a[i])
+    }
 }
 ```
 以上程序会依此输出 a b c d e
@@ -167,14 +166,14 @@ func main() {
 package main
 
 import (
-	"fmt"
+    "fmt"
 )
 
 func main() {
-	var a = [5]string{"a", "b", "c", "d", "e"}
-	for i, value := range a {
-			fmt.Println("数组下标是", i, "对应的值为", value)
-	}
+    var a = [5]string{"a", "b", "c", "d", "e"}
+    for i, value := range a {
+        fmt.Println("数组下标是", i, "对应的值为", value)
+    }
 }
 ```
 以上程序会输出
@@ -195,7 +194,7 @@ fmt.Println(string(a[0]), a[1], a[2])
 
 var a string = "找女友"
 for k, value := range a {
-	fmt.Println(k, string(value))
+    fmt.Println(k, string(value))
 }
 ```
 注意:utf8编码下一个汉字长度为3个字节(大部份情况下,实质上中文的长度为2-4 ) ,中文字符串遍历的时候下标一次增加3
