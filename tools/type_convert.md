@@ -77,6 +77,12 @@ gob.NewDecoder(buffer).Decode(&backToStringSlice)
 fmt.Println(backToStringSlice)
 ```
 
+### []slice转string
+```go
+s := []string{"a","b","c"}
+str := strings.Join(s,"")
+```
+
 
 ## 常用接口类型转换
 
