@@ -68,7 +68,8 @@ b = 2
 c = abcd
 
 来看一下http.Get()方法,下面已整理好关键代码
-```
+
+```go
 func Get(url string) (resp *Response, err error) {
 	return DefaultClient.Get(url)
 }
