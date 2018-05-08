@@ -6,19 +6,19 @@
 
 希望有所帮助
 
-## 目录
+# 目录
 
-### 基础
+## 基础
 [helloworld](https://github.com/zhangsheng1992/gostudynote/blob/master/base/helloworld.md)
 
 [数组](https://github.com/zhangsheng1992/gostudynote/blob/master/base/array.md)
 
-### 工具
+## 工具
 [类型转换](https://github.com/zhangsheng1992/gostudynote/blob/master/tools/type_convert.md)
 
 
-### 标准库
+## 标准库
 
-#### http
+### http
 [发送简单get/post请求](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-simple-request.md)
 
