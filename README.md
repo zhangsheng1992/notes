@@ -9,12 +9,12 @@
 # 目录
 
 ## 基础
-[helloworld](https://github.com/zhangsheng1992/gostudynote/blob/master/base/helloworld.md)
+[helloworld](https://github.com/zhangsheng1992/notes/blob/master/base/helloworld.md)
 
-[数组](https://github.com/zhangsheng1992/gostudynote/blob/master/base/array.md)
+[数组](https://github.com/zhangsheng1992/notes/blob/master/base/array.md)
 
 ## 工具
-[类型转换](https://github.com/zhangsheng1992/gostudynote/blob/master/tools/type_convert.md)
+[类型转换](https://github.com/zhangsheng1992/notes/blob/master/tools/type_convert.md)
 
 
 ## 标准库
