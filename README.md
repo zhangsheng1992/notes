@@ -17,4 +17,5 @@
 [类型转换](https://github.com/zhangsheng1992/gostudynote/blob/master/tools/type_convert.md)
 
 
-### 例子
+### 标准库
+
