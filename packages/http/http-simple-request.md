@@ -1,5 +1,6 @@
 >http request是http库内置结构,除了处理http请求,也可以用来发送http请求
 
+### 前言
 http package为 ** Request ** 结构体封装好了发送请求的方法,对用户而言,发送一个http请求,实际上就是设置Request结构中的相关属性,下面将逐一讲解各个属性的含义
 
 
