@@ -1,5 +1,8 @@
 >http request是http库内置结构,除了处理http请求,也可以用来发送http请求
 
+http package为 ** Request **结构体封装好了发送请求的方法,对用户而言,发送一个http请求,实际上就是设置Request结构中的相关属性,下面将逐一讲解各个属性的含义
+
+
 ### Ruquest结构
 
 Request结构如下:
@@ -31,9 +34,7 @@ type Request struct {
 }
 ```
 
-对于一个发送http请求来说,通常就是设置Request结构中的相关属性,下面将逐一讲解各个属性的含义
-
-http库提供了Get()方法来发送GET请求,来看一个最简单的GET请求,server与示例代码请提前下载 地址
+http库提供了Get()方法来发送GET请求,来看一个最简单的GET请求,server与示例代码请提前下载 地址 [server.go](https://github.com/zhangsheng1992/notes/blob/master/demo/http-client/simple/server.go)
 
 ```go
 package main
@@ -142,9 +143,11 @@ func NewRequest(method, url string, body io.Reader) (*Request, error) {
 }
 ```
 
-** NewRequest() **方法中有一段 ** `req := &Request{}` **实质上GET()方法就是简单的设置了** Requset **结构体的 ** Method **属性与 ** URL **属性,然后使用** Do() **方法来发送这个请求，返回一个** Request **结构的 ** Response **属性,其中保存着请求的结果.
+** NewRequest() ** 方法中有一段 ** `req := &Request{}` ** 
 
-** Do() **方法与** Response **结构会在后边讲解.
+实质上GET()方法就是简单的设置了 ** Requset ** 结构体的 ** Method ** 属性与 ** URL ** 属性,然后使用** Do() ** 方法来发送这个请求，返回一个 ** Request ** 结构的 ** Response **属性,其中保存着请求的结果.
+
+** Do() ** 方法与 ** Response **结构会在后边讲解.
 
 http库还提供了另一种方法 Post(),是否可以猜测Post()方法也是如此？
 

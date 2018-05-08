@@ -4,7 +4,7 @@
 
 包含基本语法,标准库使用,http/websocket,并发编程,花式踩坑集锦等
 
-整理收集不易,如果能够帮祝到你,还请star支持一下
+希望有所帮助
 
 ## 目录
 
@@ -18,4 +18,7 @@
 
 
 ### 标准库
+
+#### http
+[发送简单get/post请求](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-simple-request.md)
 
