@@ -11,14 +11,15 @@
 
 **请求头** 一般用来描述一些客户端相关的信息,如:客户端浏览器版本型号,期望返回的数据类型,期望返回的字符集等等,下面是一个请求的head部分
 
-**`Accept: text/css,*/*;q=0.1
+```go
+Accept: text/css,*/*;q=0.1
 Accept-Encoding: gzip, deflate, br
 Accept-Language: zh-CN,zh;q=0.9
 Cache-Control: no-cache
 Connection: keep-alive
 Host: bkssl.bdimg.com
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36
-`**
+```
 
 Accept表示客户端期待server返回类型的数据
 Accept-Encoding表示客户端希望返回数据的encode方式为gzip(一种压缩格式)
