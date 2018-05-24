@@ -24,4 +24,10 @@
 
 [head](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-request-head.md)
 
+[body](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-request-body.md)
+
+### encoding
+[json](https://github.com/zhangsheng1992/notes/blob/master/packages/encoding/json.md)
+
+[xml](https://github.com/zhangsheng1992/notes/blob/master/packages/encoding/xml.md)
 

@@ -4,7 +4,7 @@
 
 一个http请求中，请求正文紧跟在请求行，请求头之后，请求正文中可以包含客户提交数据信息，也可以不包含任何数据
 
-本篇的所有客户端demo与服务端demo可以在xxx下载，来看一个demo:
+本篇的所有客户端demo与服务端demo可以在[此处](https://github.com/zhangsheng1992/notes/tree/master/demo/http-client/body)下载，来看一个demo:
 
 构造一个request结构并设置url与请求方式，然后在body中传递一个简单的字符串，发送请求
 
@@ -87,11 +87,8 @@ func main() {
 
 可以通过 request.Body设置post参数
 
-注意:传递的post参数要能被正确解析,需要设置Header
+注意:传递的post参数要能被正确解析,需要设置Header 为 **application/x-www-form urlencoded**
 
-```go
-	request.Header.Add("Content-type", "application/x-www-form-urlencoded")
-```
 
 ```go
 /**
@@ -126,3 +123,11 @@ key=b,value=2
 key=c,value=3
 key=d,value=4444
 key=abc_id,value=test
+
+### json与xml
+
+传递json/xml类型数据与传递字符串数据完全相同,如果对xml和json的生成和解析有疑问，可以查阅
+
+[json](https://github.com/zhangsheng1992/notes/blob/master/packages/encoding/json.md)
+
+[xml](https://github.com/zhangsheng1992/notes/blob/master/packages/encoding/xml.md)
