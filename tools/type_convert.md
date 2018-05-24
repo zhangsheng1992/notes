@@ -137,8 +137,8 @@ import (
 func main() {
 	str := "abc"
 	request := http.Request{}
-	//strings.NewReader()也实现了io.Reader接口 所以也可以使用
-	//strings.NewReader(str)
+	//strings.Reader 也实现了io.ReadCloser接口 所以也可以使用
+	//reader := strings.NewReader(str)
 	reader := bytes.NewReader([]byte(str))
 	body := ioutil.NopCloser(reader)
 	request.Body = body

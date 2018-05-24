@@ -99,7 +99,7 @@ Accept-Encoding=gzip
 
 **NewRequest()** 为http包提供一种快速构造request结构的方法，实际上这个方法的内部也是再设置Request结构的属性值，于是下面的方式与上述方式是相同的
 
-```
+```go
 func test3() {
 	request := &http.Request{}
 	request.Method = "POST"
