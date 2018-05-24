@@ -11,16 +11,17 @@
 - 微信图文素材的模版
 
 ###与json相比
+
 json作为一种简单通信的数据格式,由于易用性所以被广泛使用,但是json有如下不足
 1.结构化 json是一种键值对的数据格式,所以没有结构化的概念,即：
 
 ```json
-	{"a":"1","b":"2"}
+{"a":"1","b":"2"}
 ```
 与
 
 ```json
-	{"b":"2","a":"1"}
+{"b":"2","a":"1"}
 ```
 是完全相同的
 
@@ -28,22 +29,21 @@ json作为一种简单通信的数据格式,由于易用性所以被广泛使用
 
 ```json
 {
-	"user":{
-		"name":"zhangsan",
-		"level":99,
-		"other":{
-			"money":"11$",
-			"Vip":true
+	"user": {
+		"name": "zhangsan",
+		"level": 99,
+		"other": {
+			"money": "11$",
+			"Vip": true
 		}
 	},
-	"team":{
-		"teamname":"xxx",
-		"member":[
-			{
-				"tname":"lisi"
+	"team": {
+		"teamname": "xxx",
+		"member": [{
+				"tname": "lisi"
 			},
 			{
-				"tname":"wangwu"
+				"tname": "wangwu"
 			}
 		]
 	}
@@ -117,7 +117,7 @@ xml解析与生产使用 **encoding/xml** 库来完成,后面简称为xml,函数
 **xml** 库使用 **Unmarshal()** 来完成解析,签名如下:
 
 ```go
-	func Unmarshal(data []byte, v interface{}) error {}
+func Unmarshal(data []byte, v interface{}) error {}
 ```
 
 是不是和json很像呢？对,非常像,上面我们是使用 **ioutil.ReadFile()** 读取的xml byte来解析,xml库也有Decoder结构,可以让我们直接读取一个xml文件并解析,稍微该一下上面的例子
