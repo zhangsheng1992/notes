@@ -1,4 +1,4 @@
-> 常用类型转换
+> 本篇记录常用类型转换已供备忘
 
 ## 基本类型转换
 
@@ -122,4 +122,26 @@ func main(){
 
 ### []byte转io.ReadCloser 
 
-常用于设置 **http.Request.Body** 与 ***http.Response.Body** 的内容
+常用于设置 **http.Request.Body** 与 ***http.Response.Body** 的	内容
+
+```go
+package main
+
+import (
+	"bytes"
+	"fmt"
+	"io/ioutil"
+	"net/http"
+)
+
+func main() {
+	str := "abc"
+	request := http.Request{}
+	//strings.NewReader()也实现了io.Reader接口 所以也可以使用
+	//strings.NewReader(str)
+	reader := bytes.NewReader([]byte(str))
+	body := ioutil.NopCloser(reader)
+	request.Body = body
+	fmt.Println(request)
+}
+```
