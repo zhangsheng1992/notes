@@ -20,8 +20,8 @@
 ## 标准库
 
 ### http
-[简单get/post请求](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-simple-request.md)
+[get/post请求](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-simple-request.md)
 
-[设置请求头中的属性](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-request-head.md)
+[设置head](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-request-head.md)
 
 

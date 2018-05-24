@@ -4,7 +4,7 @@
 
 ### int转string
 
-1.利用**fmt**标准库的** Sprintf() **、** Sprintln() **、** Sprint() **函数来转换
+1.利用 **fmt** 标准库的 **Sprintf()** 、 **Sprintln()** 、 **Sprint()** 函数来转换
 
 ```go
 var a int = 123
@@ -12,7 +12,7 @@ str := fmt.Sprintf("%d", a)
 fmt.Println(str)
 ```
 
-2.利用**strconv**库的 ** Itoa() **来转换
+2.利用**strconv**库的 **Itoa()** 来转换
 
 ```go
 var a int = 123
@@ -21,7 +21,7 @@ fmt.Println(str)
 ```
 ### string转int
 
-利用**strconv**库的 ** Atoi() **函数来转换
+利用**strconv**库的 **Atoi()** 函数来转换
 
 ```go
 var a string = "123"
@@ -61,7 +61,7 @@ var data []byte = []byte(str)
 
 ### []string转[]byte
 
-需要** encoding/gob **与 ** bytes **库
+需要 **encoding/gob** 与 **bytes** 库
 ```go
 var a = []string{"a", "b", "c", "d"}
 buffer := &bytes.Buffer{}
@@ -83,12 +83,32 @@ s := []string{"a","b","c"}
 str := strings.Join(s,"")
 ```
 
+## 时间类型转换
+
+### 时间戳转日期
+
+```go
+func main() {
+	var timestamp int64 = 1526374941
+	date := time.Unix(timep, 0).Format("06-01-02 15:04:05")
+	fmt.Println(date)
+}
+```
+
+### 获取当前时间戳
+```go
+func main(){
+	timestamp := time.Now().Unix()
+	fmt.Println(timestamp)
+}
+```
+
 
 ## 常用接口类型转换
 
 ### io.ReadCloser转[]byte
 
-常见于解析** http.Request.Body ** 与 ** *http.Response.Body **
+常见于解析 **http.Request.Body** 与 ***http.Response.Body**  
 
 利用ioutil标准库类转换
 
@@ -99,3 +119,7 @@ func main(){
     fmt.Println(dataByte, err2)	
 }
 ```
+
+### []byte转io.ReadCloser 
+
+常用于设置 **http.Request.Body** 与 ***http.Response.Body** 的内容
