@@ -47,20 +47,20 @@ map中并没有parent这个键,在诸如C++/Java或其他语言中,如果访问�
 package main
 
 import (
-	"fmt"
+    "fmt"
 )
 
 func main() {
-	var a = map[string]string{"name": "zhangsan", "age": "16", "sex": "男"}
-	fmt.Println(a["parent"])
+    var a = map[string]string{"name": "zhangsan", "age": "16", "sex": "男"}
+    fmt.Println(a["parent"])
 	if a["parent"] == "" {
-		fmt.Println("yes")
-	}
+        fmt.Println("yes")
+    }
 
-	var b = map[int]int{1: 1, 2: 2}
-	fmt.Println(b[3])
-	if b[3] == 0 {
-		fmt.Println("yes")
+    var b = map[int]int{1: 1, 2: 2}
+    fmt.Println(b[3])
+    if b[3] == 0 {
+        fmt.Println("yes")
 	}
 }
 ```
@@ -75,12 +75,12 @@ yes
 格式 `value,bool := map[key]` 如下列程序
 ```go
 func main() {
-	var a = map[string]string{"name": "zhangsan", "age": "16", "sex": "男"}
-	if value, ok := a["parent"]; ok == true {
-		fmt.Println(value)
-	} else {
-		fmt.Println("key not in map")
-	}
+    var a = map[string]string{"name": "zhangsan", "age": "16", "sex": "男"}
+    if value, ok := a["parent"]; ok == true {
+        fmt.Println(value)
+    } else {
+        fmt.Println("key not in map")
+    }
 }
 ```
 注意:golang中过的if语句中定义的变量在语句块外是访问不到的
@@ -90,10 +90,10 @@ func main() {
 和数组一样,可以使用key来修改map中的元素
 
 ```go
-	var a = map[string]string{"name": "zhangsan", "age": "16", "sex": "男"}
-	fmt.Println(a)
-	a["name"] = "李四"
-	fmt.Println(a)
+var a = map[string]string{"name": "zhangsan", "age": "16", "sex": "男"}
+fmt.Println(a)
+a["name"] = "李四"
+fmt.Println(a)
 ```
 上述代码将输出
 map[name:zhangsan age:16 sex:男]
@@ -106,13 +106,13 @@ map[name:李四 age:16 sex:男]
 package main
 
 import (
-	"fmt"
+    "fmt"
 )
 
 func main() {
-	var a = map[string]string{"name": "zhangsan", "age": "16", "sex": "男"}
-	a["girlfriend"] = "苍老师"
-	fmt.Println(a)
+    var a = map[string]string{"name": "zhangsan", "age": "16", "sex": "男"}
+    a["girlfriend"] = "苍老师"
+    fmt.Println(a)
 }
 ```
 
@@ -124,13 +124,13 @@ func main() {
 package main
 
 import (
-	"fmt"
+    "fmt"
 )
 
 func main() {
-	var a = map[string]string{"name": "zhangsan", "age": "16", "sex": "男"}
-	delete(a, "name")
-	fmt.Println(a)
+    var a = map[string]string{"name": "zhangsan", "age": "16", "sex": "男"}
+    delete(a, "name")
+    fmt.Println(a)
 }
 ```
 以上程序将map[age:16 sex:男]
@@ -140,10 +140,10 @@ func main() {
 map是引用类型,来看一个简单的例子
 ```go
 func main() {
-	var a = map[int]int{1: 1, 2: 2}
-	b := a
-	a[1] = 123456
-	fmt.Println(a, b)
+    var a = map[int]int{1: 1, 2: 2}
+    b := a
+    a[1] = 123456
+    fmt.Println(a, b)
 }
 ```
 以上程序会输出 map[1:123456 2:2] map[1:123456 2:2]
@@ -152,14 +152,14 @@ func main() {
 
 ```go
 func main() {
-	var a = map[int]int{1: 1, 2: 2}
-	b := a
-	test(a)
-	fmt.Println(a, b)
+    var a = map[int]int{1: 1, 2: 2}
+    b := a
+    test(a)
+    fmt.Println(a, b)
 }
 
 func test(a map[int]int) {
-	a[1] = 111
+    a[1] = 111
 }
 ```
 以上程序会输出 map[2:2 1:111] map[1:111 2:2] 或者 map[1:111 2:2] map[1:111 2:2]
@@ -172,6 +172,6 @@ func test(a map[int]int) {
 ```go
 var a = map[string]string{"name": "zhangsan", "age": "16", "sex": "男"}
 for key, value := range a {
-	fmt.Println(key, value)
+    fmt.Println(key, value)
 }
 ```
