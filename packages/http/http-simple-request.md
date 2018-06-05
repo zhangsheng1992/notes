@@ -10,28 +10,28 @@ Request结构如下:
 
 ```go
 type Request struct {
-	Method string
-	URL *url.URL
-	Proto      string
-	ProtoMajor int
-	ProtoMinor int
-	Header Header
-	Body io.ReadCloser
-	GetBody func() (io.ReadCloser, error)
-	ContentLength int64
-	TransferEncoding []string
-	Close bool
-	Host string
-	Form url.Values
-	PostForm url.Values
-	MultipartForm *multipart.Form
-	Trailer Header
-	RemoteAddr string
-	RequestURI string
-	TLS *tls.ConnectionState
-	Cancel <-chan struct{}
-	Response *Response
-	ctx context.Context
+    Method string
+    URL *url.URL
+    Proto      string
+    ProtoMajor int
+    ProtoMinor int
+    Header Header
+    Body io.ReadCloser
+    GetBody func() (io.ReadCloser, error)
+    ContentLength int64
+    TransferEncoding []string
+    Close bool
+    Host string
+    Form url.Values
+    PostForm url.Values
+    MultipartForm *multipart.Form
+    Trailer Header
+    RemoteAddr string
+    RequestURI string
+    TLS *tls.ConnectionState
+    Cancel <-chan struct{}
+    Response *Response
+    ctx context.Context
 }
 ```
 
@@ -41,22 +41,22 @@ http库提供了Get()方法来发送GET请求,来看一个最简单的GET请求,
 package main
 
 import (
-	"fmt"
-	"io/ioutil"
-	"net/http"
+    "fmt"
+    "io/ioutil"
+    "net/http"
 )
 
 func main() {
-	response, err := http.Get("http://127.0.0.1:8888/get?a=1&b=2&c=abcd")
-	if err != nil {
-		fmt.Println("reqeust error:", err)
-	}
-	data, readErr := ioutil.ReadAll(response.Body)
-	if readErr != nil {
-		fmt.Println("read response Body error:", readErr)
-	} else {
-		fmt.Println(string(data))
-	}
+    response, err := http.Get("http://127.0.0.1:8888/get?a=1&b=2&c=abcd")
+    if err != nil {
+        fmt.Println("reqeust error:", err)
+    }
+    data, readErr := ioutil.ReadAll(response.Body)
+    if readErr != nil {
+        fmt.Println("read response Body error:", readErr)
+    } else {
+        fmt.Println(string(data))
+    }
 }
 ```
 
@@ -72,78 +72,78 @@ c = abcd
 
 ```go
 func Get(url string) (resp *Response, err error) {
-	return DefaultClient.Get(url)
+    return DefaultClient.Get(url)
 }
 
 var DefaultClient = &Client{}
 
 func (c *Client) Get(url string) (resp *Response, err error) {
-	req, err := NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-	return c.Do(req)
+    req, err := NewRequest("GET", url, nil)
+    if err != nil {
+        return nil, err
+    }
+    return c.Do(req)
 }
 
 func NewRequest(method, url string, body io.Reader) (*Request, error) {
-	if method == "" {
-		method = "GET"
+    if method == "" {
+        method = "GET"
+    }
+    if !validMethod(method) {
+        return nil, fmt.Errorf("net/http: invalid method %q", method)
+    }
+    u, err := parseURL(url)
+    if err != nil {
+        return nil, err
+    }
+    rc, ok := body.(io.ReadCloser)
+    if !ok && body != nil {
+        rc = ioutil.NopCloser(body)
 	}
-	if !validMethod(method) {
-		return nil, fmt.Errorf("net/http: invalid method %q", method)
-	}
-	u, err := parseURL(url)
-	if err != nil {
-		return nil, err
-	}
-	rc, ok := body.(io.ReadCloser)
-	if !ok && body != nil {
-		rc = ioutil.NopCloser(body)
-	}
-	// The host's colon:port should be normalized. See Issue 14836.
-	u.Host = removeEmptyPort(u.Host)
-	req := &Request{
-		Method:     method,
-		URL:        u,
-		Proto:      "HTTP/1.1",
-		ProtoMajor: 1,
-		ProtoMinor: 1,
-		Header:     make(Header),
-		Body:       rc,
-		Host:       u.Host,
-	}
-	if body != nil {
-		switch v := body.(type) {
-		case *bytes.Buffer:
-			req.ContentLength = int64(v.Len())
-			buf := v.Bytes()
-			req.GetBody = func() (io.ReadCloser, error) {
-				r := bytes.NewReader(buf)
-				return ioutil.NopCloser(r), nil
-			}
-		case *bytes.Reader:
-			req.ContentLength = int64(v.Len())
-			snapshot := *v
-			req.GetBody = func() (io.ReadCloser, error) {
-				r := snapshot
-				return ioutil.NopCloser(&r), nil
-			}
-		case *strings.Reader:
-			req.ContentLength = int64(v.Len())
-			snapshot := *v
-			req.GetBody = func() (io.ReadCloser, error) {
-				r := snapshot
-				return ioutil.NopCloser(&r), nil
-			}
-		default:
-		}
-		if req.GetBody != nil && req.ContentLength == 0 {
-			req.Body = NoBody
-			req.GetBody = func() (io.ReadCloser, error) { return NoBody, nil }
-		}
-	}
+    // The host's colon:port should be normalized. See Issue 14836.
+    u.Host = removeEmptyPort(u.Host)
+    req := &Request{
+        Method:     method,
+        URL:        u,
+        Proto:      "HTTP/1.1",
+        ProtoMajor: 1,
+        ProtoMinor: 1,
+        Header:     make(Header),
+        Body:       rc,
+        Host:       u.Host,
+    }
+    if body != nil {
+        switch v := body.(type) {
+        case *bytes.Buffer:
+            req.ContentLength = int64(v.Len())
+            buf := v.Bytes()
+            req.GetBody = func() (io.ReadCloser, error) {
+                r := bytes.NewReader(buf)
+                return ioutil.NopCloser(r), nil
+            }
+        case *bytes.Reader:
+            req.ContentLength = int64(v.Len())
+            snapshot := *v
+            req.GetBody = func() (io.ReadCloser, error) {
+                r := snapshot
+                return ioutil.NopCloser(&r), nil
+            }
+        case *strings.Reader:
+            req.ContentLength = int64(v.Len())
+            snapshot := *v
+            req.GetBody = func() (io.ReadCloser, error) {
+                r := snapshot
+                return ioutil.NopCloser(&r), nil
+            }
+        default:
+        }
+        if req.GetBody != nil && req.ContentLength == 0 {
+            req.Body = NoBody
+            req.GetBody = func() (io.ReadCloser, error) { return NoBody, nil }
+        }
+    }
 
-	return req, nil
+    return req, nil
 }
 ```
 
@@ -161,29 +161,29 @@ http库还提供了另一种方法 Post(),是否可以猜测Post()方法也是�
 package main
 
 import (
-	"fmt"
-	"io/ioutil"
-	"net/http"
-	"strings"
+    "fmt"
+    "io/ioutil"
+    "net/http"
+    "strings"
 )
 
 func main() {
-	//get()
-	post()
+    //get()
+    post()
 }
 
 func post() {
-	response, err := http.Post("http://127.0.0.1:8888/post",
+    response, err := http.Post("http://127.0.0.1:8888/post",
 		"application/x-www-form-urlencoded", strings.NewReader("a=1&b=2"))
-	if err != nil {
-		fmt.Println("reqeust error:", err)
-	}
-	data, readErr := ioutil.ReadAll(response.Body)
-	if readErr != nil {
-		fmt.Println("read response Body error:", readErr)
-	} else {
-		fmt.Println(string(data))
-	}
+    if err != nil {
+        fmt.Println("reqeust error:", err)
+    }
+    data, readErr := ioutil.ReadAll(response.Body)
+    if readErr != nil {
+        fmt.Println("read response Body error:", readErr)
+    } else {
+        fmt.Println(string(data))
+    }
 }
 
 ```

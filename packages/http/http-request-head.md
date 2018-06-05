@@ -38,15 +38,15 @@ server端的程序代码可以点击此处
 package main
 
 import (
-	"fmt"
-	"io/ioutil"
-	"net/http"
+    "fmt"
+    "io/ioutil"
+    "net/http"
 )
 
 func main() {
-	response, _ := http.Get("http://127.0.0.1:8888/get?a=1&b=2&c=abcd")
-	data, _ := ioutil.ReadAll(response.Body)
-	fmt.Println("server端返回的信息为:\n", string(data))
+    response, _ := http.Get("http://127.0.0.1:8888/get?a=1&b=2&c=abcd")
+    data, _ := ioutil.ReadAll(response.Body)
+    fmt.Println("server端返回的信息为:\n", string(data))
 }
 ```
 运行,将返回:
@@ -77,16 +77,16 @@ type Header map[string][]string
 
 ```go
 func test2() {
-	//create Rquest and set Header
-	request, _ := http.NewRequest("GET", "http://127.0.0.1:8888/get", nil)
-	request.Header["Accept"] = []string{"text/html,", "q=0.8"}
-	request.Header["Accept-Language"] = []string{"zh-CN,zh;q=0.9"}
+    //create Rquest and set Header
+    request, _ := http.NewRequest("GET", "http://127.0.0.1:8888/get", nil)
+    request.Header["Accept"] = []string{"text/html,", "q=0.8"}
+    request.Header["Accept-Language"] = []string{"zh-CN,zh;q=0.9"}
 
-	//init client and send this request
-	client := http.Client{}
-	response, _ := client.Do(request)
-	data, _ := ioutil.ReadAll(response.Body)
-	fmt.Println("server端返回的信息为:\n", string(data))
+    //init client and send this request
+    client := http.Client{}
+    response, _ := client.Do(request)
+    data, _ := ioutil.ReadAll(response.Body)
+    fmt.Println("server端返回的信息为:\n", string(data))
 }
 ```
 运行程序,将输出:
@@ -101,18 +101,18 @@ Accept-Encoding=gzip
 
 ```go
 func test3() {
-	request := &http.Request{}
-	request.Method = "POST"
-	u, _ := url.Parse("http://127.0.0.1:8888/get")
-	request.URL = u
-	request.Header = map[string][]string{}
-	request.Header["Accept"] = []string{"text/html,", "q=0.8"}
-	request.Header["Accept-Language"] = []string{"zh-CN,zh;q=0.9"}
+    request := &http.Request{}
+    request.Method = "POST"
+    u, _ := url.Parse("http://127.0.0.1:8888/get")
+    request.URL = u
+    request.Header = map[string][]string{}
+    request.Header["Accept"] = []string{"text/html,", "q=0.8"}
+    request.Header["Accept-Language"] = []string{"zh-CN,zh;q=0.9"}
 
-	client := http.Client{}
-	response, _ := client.Do(request)
-	data, _ := ioutil.ReadAll(response.Body)
-	fmt.Println("server端返回的信息为:\n", string(data))
+    client := http.Client{}
+    response, _ := client.Do(request)
+    data, _ := ioutil.ReadAll(response.Body)
+    fmt.Println("server端返回的信息为:\n", string(data))
 }
 ```
 上述用到了 **net/url**库中的Parse()方法，用来检测一个字符串是否是正确的url地址，返回 **url.URL** 类型与 **error**类型，除了检测以外，还可以将字符串url转换为 **url.URL** ，而 **Requst.URL**接收的是 **url.URL**类型。
@@ -123,19 +123,19 @@ func test3() {
 并不是所有包含在http请求头中的信息都需要通过设置 **request.Header** 来实现，部分属性可以通过直接设 置**request.Header**的相关属性值来设置，如:
 ```go
 func test4() {
-	request := &http.Request{
-		Header: map[string][]string{},
-	}
-	request.Method = "POST"
-	u, _ := url.Parse("http://127.0.0.1:8888/test")
-	request.URL = u
-	request.Host = "www.a.com"
-	request.RemoteAddr = "www.a.com"
+    request := &http.Request{
+        Header: map[string][]string{},
+    }
+    request.Method = "POST"
+    u, _ := url.Parse("http://127.0.0.1:8888/test")
+    request.URL = u
+    request.Host = "www.a.com"
+    request.RemoteAddr = "www.a.com"
 
-	client := http.Client{}
-	response, _ := client.Do(request)
-	data, _ := ioutil.ReadAll(response.Body)
-	fmt.Println("server端返回的信息为:\n", string(data))
+    client := http.Client{}
+    response, _ := client.Do(request)
+    data, _ := ioutil.ReadAll(response.Body)
+    fmt.Println("server端返回的信息为:\n", string(data))
 }
 ```
 开始给出的例子中Host等信息也是包含在请求头中的,http库将其单独设置为一个属性,读取和设置也就更加便利

@@ -61,7 +61,7 @@ func main() {
     fmt.Println(b[3])
     if b[3] == 0 {
         fmt.Println("yes")
-	}
+    }
 }
 ```
 上述程序将输出
