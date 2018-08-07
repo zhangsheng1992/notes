@@ -1,14 +1,10 @@
-# notes
+# 说明
 
 这是一份个人整理收集的golang学习资料,包含基础语法,标准库介绍,以及平时整理收集的部分,希望有所帮助
 
-this repertory show how to learn golang.
-
-include basic grammar, standard package and some tools and I hope to help you.
-
 email <zhangsheng_1992@sohu.com>
 
-# language
+# Language
 
 中文
 
