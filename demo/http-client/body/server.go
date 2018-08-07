@@ -6,12 +6,7 @@ import (
 	"net/http"
 )
 
-/**
- *	create a http server to provide services
- *	if the error happened,usually,the reason of
- *	the error is the 8080 port be occupyed by other application.
- *	please check and try again.
- */
+// 创建一个http服务器 监听8888端口.如果启动出错,检查一下端口是否被占用。
 func main() {
 	http.HandleFunc("/test", test)
 	http.HandleFunc("/test2", test2)
@@ -21,18 +16,13 @@ func main() {
 	}
 }
 
-/**
- *	a simple http handle function
- *	it will print the request's body
- */
+// 这个路由处理器直接打印出请求的body
 func test(w http.ResponseWriter, r *http.Request) {
 	data, _ := ioutil.ReadAll(r.Body)
 	fmt.Fprintln(w, "服务端收到的数据为:", string(data))
 }
 
-/**
- *	print post parameter
- */
+// 打印post请求参数
 func test2(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	str := "服务端信息:\n"

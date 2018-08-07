@@ -1,10 +1,18 @@
 # notes
 
-这是一份个人整理收集的golang学习资料
+这是一份个人整理收集的golang学习资料,包含基础语法,标准库介绍,以及平时整理收集的部分,希望有所帮助
 
-包含基本语法,标准库使用,http/websocket,并发编程,花式踩坑集锦等
+this repertory show how to learn golang.
 
-希望有所帮助
+include basic grammar, standard package and some tools and I hope to help you.
+
+email <zhangsheng_1992@sohu.com>
+
+# language
+
+中文
+
+English
 
 # 目录
 
@@ -19,7 +27,7 @@
 
 ## 标准库
 
-### http
+### http(client)
 [get/post](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-simple-request.md)
 
 [head](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-request-head.md)
@@ -31,3 +39,4 @@
 
 [xml](https://github.com/zhangsheng1992/notes/blob/master/packages/encoding/xml.md)
 
+### crypto
