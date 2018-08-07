@@ -40,3 +40,4 @@ English
 [xml](https://github.com/zhangsheng1992/notes/blob/master/packages/encoding/xml.md)
 
 ### crypto
+[md5](https://github.com/zhangsheng1992/notes/blob/master/packages/crypto/md5.md)

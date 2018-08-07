@@ -14,15 +14,15 @@ Size 定义了多少块每次校验的字节数，16字节。
 函数签名如下，接收byte类型参数，返回byte数组
 
 ```go
-    func Sum(data []byte) [Size]byte
+func Sum(data []byte) [Size]byte
 ```
 
-对于简单的字符串可以直接进行加密, **int** ， **float** 等类型可能需要先格式化为字符串。
+对于简单的字符串可以直接进行加密, **int，float** 等类型可能需要先格式化为字符串。
 
 ```go
-    str := "123456"
-    re := md5.Sum([]byte(str))
-    fmt.Printf("str %s 的md5为 %x", str, re)
+str := "123456"
+re := md5.Sum([]byte(str))
+fmt.Printf("str %s 的md5为 %x", str, re)
 ```
 
 
@@ -30,7 +30,7 @@ Size 定义了多少块每次校验的字节数，16字节。
 md5.New()返回一个hash.Hash对象，函数签名如下
 
 ```go
-    func New() hash.Hash
+func New() hash.Hash
 ```
 
 hash.Hash提供了几个方便的方法
@@ -40,7 +40,7 @@ hash.Hash提供了几个方便的方法
 函数签名如下:
 
 ```go
-    func Write(p []btye) (n int, err error)
+func Write(p []btye) (n int, err error)
 ```
 
 Write()方法允许我们向hash对象中写入数据,md5是分片计算的,因此可以将一个较大的字符串切割成多个部分，每个部分分别计算md5，然后再整体计算，这在计算一个较长的字符串时非常有效
@@ -51,7 +51,7 @@ Write()方法允许我们向hash对象中写入数据,md5是分片计算的,因�
 Sum()方法与md5.Sum()类似
 
 ```go
-	func Sun(b []btye) b []byte
+func Sun(b []btye) b []byte
 ```
 
 ### hash.Reset()
@@ -70,19 +70,19 @@ Reset()方法会清空Write()方法写入的数据。
 来看一下实现:
 
 ```go
-    file := "a.mp4"
-    f, _ := os.Open(file)
-	// 1
-    fileinfo, _ := ioutil.ReadAll(f)
-    // 2
-	re := md5.Sum(fileinfo)
-    fmt.Printf("文件的md5为%x", re)
+file := "a.mp4"
+f, _ := os.Open(file)
+// 1
+fileinfo, _ := ioutil.ReadAll(f)
+// 2
+re := md5.Sum(fileinfo)
+fmt.Printf("文件的md5为%x", re)
 ```
 
 这样计算没有问题，可以计算出文件的md5，但是耗费内存太高。
 
-文件大小为2GB，那么在 **1 ** 位置时的 **fileinfo  ** 占用了2GB内存。
-在 **2 ** 的时候，由于是值类型，参数传递的时候会做拷贝，因此会再消耗2GB内存。
+文件大小为2GB，那么在 1 位置时的 **fileinfo** 占用了2GB内存。
+在 2 位置的时候，由于是值类型，参数传递的时候会做拷贝，因此会再消耗2GB内存。
 
 
 ### 使用Write()来优化md5计算
@@ -96,29 +96,29 @@ Reset()方法会清空Write()方法写入的数据。
 
 
 ```go
-	filepath := "./a.mp4"
-	file, _ := os.Open(filepath)
-	buffer := make([]byte, 1024*1024*20)
-	var offset int64 = 0
-	m := md5.New()
+filepath := "./a.mp4"
+file, _ := os.Open(filepath)
+buffer := make([]byte, 1024*1024*20)
+var offset int64 = 0
+m := md5.New()
 
-	for {
-		n, err := file.ReadAt(buffer, offset)
-		if err != nil && err != io.EOF {
-			fmt.Println(err)
-			break
-		}
-
-		if err != nil && err == io.EOF {
-			m.Write(buffer[:n])
-			break
-		}
-		
-		offset = offset + int64(n)
-		m.Write(buffer)
+for {
+	n, err := file.ReadAt(buffer, offset)
+	if err != nil && err != io.EOF {
+		fmt.Println(err)
+		break
 	}
-	filemd5 = fmt.Sprintf("%x", m.Sum(nil))
-	fmt.Printf("文件的md5为%x", filemd5)
+
+	if err != nil && err == io.EOF {
+		m.Write(buffer[:n])
+		break
+	}
+	
+	offset = offset + int64(n)
+	m.Write(buffer)
+}
+filemd5 = fmt.Sprintf("%x", m.Sum(nil))
+fmt.Printf("文件的md5为%x", filemd5)
 ```
 
 这样耗费的内存就为你定义的buffer的2倍，此处为20MB。
