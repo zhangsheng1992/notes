@@ -77,6 +77,13 @@ gob.NewDecoder(buffer).Decode(&backToStringSlice)
 fmt.Println(backToStringSlice)
 ```
 
+或
+
+```go
+b := []byte{}
+str := fmt.Sprintf("%x",b)
+```
+
 ### []slice转string
 ```go
 s := []string{"a","b","c"}
