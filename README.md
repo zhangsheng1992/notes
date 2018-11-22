@@ -34,7 +34,7 @@ email <zhangsheng_1992@sohu.com>
 ## 其他
 
 ### 字符串拼接
-[字符串拼接](tools/join_string.md5.md)
+[字符串拼接](tools/join_string.md)
 
 [类型转换](tools/type_convert.md)
 
