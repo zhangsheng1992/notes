@@ -35,7 +35,7 @@ type Request struct {
 }
 ```
 
-http库提供了Get()方法来发送GET请求,来看一个最简单的GET请求,server与示例代码请提前下载 地址 [server.go](https://github.com/zhangsheng1992/notes/blob/master/demo/http-client/simple/server.go)
+http库提供了Get()方法来发送GET请求,来看一个最简单的GET请求,server与示例代码请提前下载 地址 [server.go](../../demo/http-client/simple/server.go)
 
 ```go
 package main

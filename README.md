@@ -8,12 +8,9 @@ email <zhangsheng_1992@sohu.com>
 # 目录
 
 ## 基础
-[helloworld](https://github.com/zhangsheng1992/notes/blob/master/base/helloworld.md)
+[helloworld](base/helloworld.md)
 
-[数组](https://github.com/zhangsheng1992/notes/blob/master/base/array.md)
-
-## 工具
-[类型转换](https://github.com/zhangsheng1992/notes/blob/master/tools/type_convert.md)
+[数组](base/array.md)
 
 
 ## 标准库
@@ -23,23 +20,21 @@ email <zhangsheng_1992@sohu.com>
 
 [设置head](packages/http/http-request-head.md)
 
-[设置body](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-request-body.md)
+[设置body](packages/http/http-request-body.md)
 
 ### encoding
-[json](https://github.com/zhangsheng1992/notes/blob/master/packages/encoding/json.md)
+[json](packages/encoding/json.md)
 
-[xml](https://github.com/zhangsheng1992/notes/blob/master/packages/encoding/xml.md)
+[xml](packages/encoding/xml.md)
 
 ### crypto
-[md5](https://github.com/zhangsheng1992/notes/blob/master/packages/crypto/md5.md)
+[md5](packages/crypto/md5.md)
 
 
 ## 其他
 
-### 类型转换
-
 ### 字符串拼接
+[字符串拼接](tools/join_string.md5.md)
 
-
-
+[类型转换](tools/type_convert.md)
 

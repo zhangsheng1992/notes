@@ -270,5 +270,6 @@ func (b *Buffer) WriteString(s string) (n int, err error) {
 2. 对于字符串与其他类型底层类型拼接,使用 **类型转换** 配合`append()`的方式比较好.
 3. 对于复杂的拼接,`fmt.SpintX()`与`bytes.Buffer`均可,前者类型支持的多一些,后者速度更快一点.
 
+所有代码可以在点击此处 [demo](../demo/tools/plus)
 
 
