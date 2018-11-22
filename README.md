@@ -4,11 +4,6 @@
 
 email <zhangsheng_1992@sohu.com>
 
-# Language
-
-中文
-
-English
 
 # 目录
 
@@ -24,11 +19,11 @@ English
 ## 标准库
 
 ### http(client)
-[get/post](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-simple-request.md)
+[get/post请求](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-simple-request.md)
 
-[head](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-request-head.md)
+[设置head](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-request-head.md)
 
-[body](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-request-body.md)
+[设置body](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-request-body.md)
 
 ### encoding
 [json](https://github.com/zhangsheng1992/notes/blob/master/packages/encoding/json.md)
@@ -37,3 +32,20 @@ English
 
 ### crypto
 [md5](https://github.com/zhangsheng1992/notes/blob/master/packages/crypto/md5.md)
+
+
+## 其他
+
+### 备忘
+类型转换
+浅拷贝与深拷贝
+
+### package
+bufferpool
+
+### 坑
+
+死协程
+
+mysql prepare相关
+
