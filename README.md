@@ -19,9 +19,9 @@ email <zhangsheng_1992@sohu.com>
 ## 标准库
 
 ### http(client)
-[get/post请求](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-simple-request.md)
+[get/post请求](packages/http/http-simple-request.md)
 
-[设置head](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-request-head.md)
+[设置head](packages/http/http-request-head.md)
 
 [设置body](https://github.com/zhangsheng1992/notes/blob/master/packages/http/http-request-body.md)
 
@@ -36,16 +36,10 @@ email <zhangsheng_1992@sohu.com>
 
 ## 其他
 
-### 备忘
-类型转换
-浅拷贝与深拷贝
+### 类型转换
 
-### package
-bufferpool
+### 字符串拼接
 
-### 坑
 
-死协程
 
-mysql prepare相关
 

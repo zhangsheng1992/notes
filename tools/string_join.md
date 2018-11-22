@@ -183,6 +183,7 @@ fmt.Println("f的长度:", len(f), "容量:", cap(f))
 
 如图2,数组在新的内存地址中申请一块长度为原容量 `2倍`的一块内存地址,再将原始数据拷贝过去.
 
+![数组底层的迁移.png](../demo/thumbnail/slice.png)
 
 ### fmt.SprintX()性能分析
 `fmt`库中函数,允许输入任意类型的数据,所以参数类型都是`interface{}`,上述例子中使用的`Sprint()`签名如下:
