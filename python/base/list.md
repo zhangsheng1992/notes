@@ -1,4 +1,4 @@
-> list时一种可以存储任意类型的有序序列
+> 列表(list)是一种可以存储任意类型的有序序列
 
 ### 定义list
 
@@ -35,13 +35,13 @@ for i in range(len(a)):
     print(a[i])
 ```
 
-使用`len()`获取list的长度  `range(i)`表示从0开始遍历到i但并不包括i
-
 ### list截取
-可以使用`list[start:end:step]`方式截取list,**start**省略表示从0开始,
+可以使用`list[start:end:step]`方式截取list,
+
+**start**省略表示从0开始,
 **end**省略表示到最后的位置 python中下标负值如表示从尾部开始,注意是从**-1**开始的
 -1表示最后一个元素  -2表示倒数第二个 以此类推
-step表示步幅,即隔几个元素截取一下, demo:
+**step**表示步幅,即隔几个元素截取一下, demo:
 
 ```python
 a = ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
@@ -55,8 +55,9 @@ print(a[::2])  # ['a', 'c', 'e', 'g', 'i']
 print(a[-3:])  # ['g', 'h', 'i']
 ```
 ### list运算
-list支持两种运算 **"+"** **"*"**
-**"+"** 表示连接list,将两个list组合成一个list
+list支持两种运算 `+` 与 `*`
+
+`+` 表示连接list,将两个list组合成一个list
 
 ```python
 a = ["a", "b", "c", "d"]
@@ -64,8 +65,7 @@ b = ["e", "f", "g", "h", "i"]
 print(a + b)  # 拼接 ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
 ```
 
-**"*"** 表示重复list,即将一个list重复多次变成一个新的list
-使用时只能指定int类型的非负值(负值会清空list,类似与clear())
+`*` 表示重复list,即将一个list重复多次变成一个新的list,使用时只能指定int类型的非负值(负值会清空list,类似与clear())
 
 ```python
 a = ["a", "b", "c", "d"]
@@ -73,9 +73,32 @@ print(a * 2)  # repeat多次 ['a', 'b', 'c', 'd', 'a', 'b', 'c', 'd']
 print(a * -1)  # 清空list 等同于 clear()[]
 # print(a * 1.5)  # 报错 an't multiply sequence by non-int of type 'float'
 ```
+### 列表内置函数
+
+使用`len()`获取list的长度
+
+```python
+a = [1, 2, 3]
+print(len(a))  # 3
+```
+
+使用`str()`将list转换为字符串
+
+```python
+a = [1, 2, 3]
+print(str(a), type(str(a)))  # [1, 2, 3] <class 'str'>
+```
+
+使用`del()`或**del**关键字删除一个list
+
+```python
+a = [1, 2, 3]
+del a  # del(a)
+# print(a) # NameError: name 'a' is not defined
+```
 
 
-### list方法
+### 列表内置方法
 
 **append()**
 
@@ -119,8 +142,7 @@ b = a
 b[0] = "aaa"
 print(a)  # ['aaa', 2, 3, 4, 5]
 ```
-如果不想修改b中元素的同时影响a的,那么需要使用**copy()**方法,
-**copy()**会将原list拷贝一份,分配新的地址,对copy对象的修改不会影响原始数据
+如果不想修改b中元素的同时影响a的,那么需要使用**copy()**方法,**copy()**会将原list拷贝一份,分配新的地址,对copy对象的修改不会影响原始数据
 
 ```python
 a = [1, 2, 3, 4, 5]
@@ -190,9 +212,13 @@ print(a.index(2, 4, 10))  # 6
 
 **insert()**
 
-在list指定位置插入元素,接收两个参数,第一个参数表示插入的位置,第二个参数为插入的元素
-如果指定的位置在list中不存在,会在list后面追加元素,类似与append
-如果指定的位置存在,将会插入指定位置,后续元素的位置将会依次向后移
+在list指定位置插入元素,接收两个参数
+
+第一个参数表示插入的位置,如果指定的位置在list中不存在,会在list后面追加元素,类似与append,如果指定的位置存在,将会插入指定位置,后续元素的位置将会依次向后移
+
+第二个参数为插入的元素
+
+
 
 ```python
 a = [1, 2, 3, 4, 5]
