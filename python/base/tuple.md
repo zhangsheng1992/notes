@@ -57,12 +57,14 @@ print(a[::2])  # ('a', 'c', 'e', 'g')
 # # 从tuple倒数第三个元素开始 截取到tuple结尾处
 print(a[-3:])  # ('e', 'f', 'g')
 ```
+
 **注: tuple没有运算符,字符串可以看作一种特殊的tuple**
 
 
 ### tuple方法
 
 **count()**
+
 与list的**count()**完全一致, 统计tuple中元素的数量,如果不存在会抛出异常
 配合`try...except...`使用以免造成不必要的麻烦.
 
@@ -72,6 +74,7 @@ print(a.count(2))  # 1
 ```
 
 **index()**
+
 与list的**index()**完全一致,返回指定元素的下标,如果不存在会抛出异常
 配合`try...except...`使用以免造成不必要的麻烦.
 
@@ -81,6 +84,7 @@ print(a.index("d"))  # 3
 ```
 
 **len()**
+
 计算tuple长度
 ```python
 a = (1, 2, 3, 4, 5)
