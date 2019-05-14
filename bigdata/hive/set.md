@@ -39,9 +39,9 @@ select field1 from test2 where field1.name = "zhangsan";
 ```
 
 结果如下
-![result1](../../img/result1.png)
-![result2](../../img/result2.png)
-![result3](../../img/result3.png)
+![result1](../img/result1.png)
+![result2](../img/result2.png)
+![result3](../img/result3.png)
 
 ### map
 同struct,**map**的用法基本相似,以下为创建一个map类型字段
@@ -93,6 +93,6 @@ select * from test4 where field4[0]="zhangsan";
 ```
 
 结果如下
-![result7](../../img/result7.png)
-![result8](../../img/result8.png)
-![result9](../../img/result9.png)
+![result7](../img/result7.png)
+![result8](../img/result8.png)
+![result9](../img/result9.png)
