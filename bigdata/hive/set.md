@@ -38,7 +38,8 @@ select field1.name from test2;
 select field1 from test2 where field1.name = "zhangsan";
 ```
 
-结果如下
+结果如下:
+
 ![result1](../img/result1.png)
 ![result2](../img/result2.png)
 ![result3](../img/result3.png)
@@ -67,7 +68,8 @@ select field2["name"] as name,field2["age"] as age from test3;
 select * from test3 where field2["age"] > 25;
 ```
 
-结果如下
+结果如下:
+
 ![result4](../img/result4.png)
 ![result5](../img/result5.png)
 ![result6](../img/result6.png)
@@ -93,6 +95,7 @@ select * from test4 where field4[0]="zhangsan";
 ```
 
 结果如下
+
 ![result7](../img/result7.png)
 ![result8](../img/result8.png)
 ![result9](../img/result9.png)
