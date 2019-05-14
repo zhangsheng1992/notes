@@ -68,9 +68,9 @@ select * from test3 where field2["age"] > 25;
 ```
 
 结果如下
-![result4](../../img/result4.png)
-![result5](../../img/result5.png)
-![result6](../../img/result6.png)
+![result4](../img/result4.png)
+![result5](../img/result5.png)
+![result6](../img/result6.png)
 
 ### array
 与所有支持数组的编程语言一致,使用`array[下标]`的方式访问,创建一个**array**类型字段
