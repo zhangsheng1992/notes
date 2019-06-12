@@ -213,9 +213,7 @@ print(a.index(2, 4, 10))  # 6
 **insert()**
 
 在list指定位置插入元素,接收两个参数
-
 第一个参数表示插入的位置,如果指定的位置在list中不存在,会在list后面追加元素,类似与append,如果指定的位置存在,将会插入指定位置,后续元素的位置将会依次向后移
-
 第二个参数为插入的元素
 
 
@@ -258,6 +256,21 @@ print(a)  # [5, 4, 3, 2, 1]
 a = [5, 4, 3, 2, 1]
 a.sort()
 print(a)  # [1, 2, 3, 4, 5]
+```
+`sort()`接受两个参数 `list.sort(cmp=None,key=None,reverse=False)`
+* key 指定比较的元素,必须是可迭代对象中的一个元素
+* reverse 是否倒序
+```python
+# 按元组第二个元素大小排序
+a = [(1, 6), (3, 4), (5, 2)]
+
+
+def b(elem):
+    return elem[1]
+
+
+a.sort(key=b)
+print(a)
 ```
 
 **enumerate()**
