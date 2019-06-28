@@ -16,15 +16,18 @@
 
 ## 生成临时表
 一般常见的方式如下:
+
 ```sql
 insert overwrite table table1 select from student where sex="男" and grade="一年级"
 insert overwrite table table2 select from student where sex="女" and grade="一年级"
 ......
 ```
+
 这种方式语法是正确的,但是效率过于低下,因每一次**insert**时都需要去扫描一遍student
 
 ## 优化
 hive提供了`from table`语句,在达到同样目的的时候,只扫描一遍表
+
 ```sql
 from student
 insert overwrite table table1 select * where sex="男" and grade="一年级"

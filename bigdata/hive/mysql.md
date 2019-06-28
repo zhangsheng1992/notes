@@ -86,17 +86,20 @@ export HIVE_AUX_JARS_PATH=/usr/local/Cellar/hive/3.1.1/libexec/lib
 ```
 
 初始化hive的元数据库
+
 ```sh
 schematool -dbType mysql -initSchema
 ```
 初始化后数据库中会有如下表:
 ![hive库信息](../img/hive.png)
 启动hive
+
 ```sh
 hive --service metastore &
 ```
 
 测试,输入`hive`并回撤进入**hive**命令行状态
+
 ```sh
 hive> show databases;
 OK
