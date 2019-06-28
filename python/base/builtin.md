@@ -12,9 +12,41 @@ class Animal: pass
 print(__name__)  # 显示模块名 __main__
 print(Animal.__name__)  # 显示类名 Animal
 ```
-### `__bases__`
-显示父类信息
+
+### `__slots__`
+python是一门动态语言,允许我们在运行时修改代码,如给对象增加属性
+```python
+class A:
+    def __init__(self):
+        self.x = 1
+        self.y = 2
+
+if __name__ == "__main__":
+    a = A()
+    a.z = 3
+    print(a.x, a.y,a.z)
 ```
+动态添加对程序阅读性与健壮性均有影响,内置变量`__slots__`就是为了约束这种行为
+
+```python
+class A:
+    __slots__ = ("x", "y")
+
+    def __init__(self):
+        self.x = 1
+        self.y = 2
+
+
+if __name__ == "__main__":
+    a = A()
+    a.z = 3
+```
+如demo所示,当试图给给实例a增加一个属性`z`的时候,会抛出`AttributeError: 'A' object has no attribute 'z'`异常
+
+### `__bases__`
+
+显示父类信息
+```python
 class Animal: pass
 
 
