@@ -161,7 +161,7 @@ set interactive_timeout 3600;
 
 然后增大mysql的最大连接数和
 ```text
-show variables like 'max_connections';
+set global max_connections=200;
 ```
 
 4.注意
